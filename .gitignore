@@ -1,0 +1,21 @@
+# Playwright
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/
+
+# Cucumber
+.cucumber/
+.features-gen/
+
+# macOS specific files
+.DS_Store
+*.bak
+
+# Build output/Temp
+/dist/
+/build/
+*.log
+*.pid
