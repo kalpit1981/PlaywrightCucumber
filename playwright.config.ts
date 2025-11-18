@@ -1,6 +1,8 @@
 import { defineConfig, devices } from '@playwright/test';
 import { defineBddConfig } from 'playwright-bdd';
 
+const isCI = !!process.env.CI;
+
 const testDir = defineBddConfig({
   features: [
     'tests/features/login.feature',
@@ -28,6 +30,7 @@ const testDir = defineBddConfig({
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
+
 export default defineConfig({
   // Use the `testDir` returned from defineBddConfig so playwright-bdd can find its config
   testDir,
@@ -65,7 +68,8 @@ export default defineConfig({
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      use: { ...devices['Desktop Chrome'], headless: isCI || true },
+      
     },
 
  /*    {
