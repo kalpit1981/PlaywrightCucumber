@@ -6,7 +6,7 @@ const { Given, When, Then } = createBdd(test);
 
 Given('user is logged in', async ({ loginPage }) => {
   await loginPage.goto();
-  await loginPage.login('standard_user', 'secret_sauce');
+  await loginPage.login('Username', 'Password'); // Pass env variable keys, not actual values
 });
 
 When('user sorts products by {string}', async ({ productsPage }, option) => {
@@ -33,7 +33,7 @@ Then('products should be sorted alphabetically by name', async ({ productsPage }
 
 Given('user is on products page', async ({ loginPage }) => {
     await loginPage.goto();
-    await loginPage.login('standard_user', 'secret_sauce');
+    await loginPage.login('Username', 'Password'); // Pass env variable keys, not actual values
 });
 
 When('user adds {string} products to cart', async ({ productsPage }, count) => {

@@ -15,7 +15,7 @@
     "@cucumber/cucumber": "^11.3.0",
     "@playwright/test": "^1.56.1",
     "@types/node": "^24.10.1",
-    "playwright-bdd": "^8.4.1",
-    "ts-node": "^10.9.2"
+    "dotenv": "^17.2.3",
+    "playwright-bdd": "^8.4.1"
   }
 }

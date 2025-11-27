@@ -1,5 +1,11 @@
 import { defineConfig, devices } from '@playwright/test';
 import { defineBddConfig } from 'playwright-bdd';
+import dotenv from 'dotenv';
+
+dotenv.config({ 
+  path: `./env/.env.${process.env.ENV}` 
+});
+
 
 const isCI = !!process.env.CI;
 

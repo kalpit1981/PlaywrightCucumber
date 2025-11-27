@@ -6,7 +6,7 @@ const { Given, When, Then } = createBdd(test);
 
 Given('user is on checkout overview page', async ({ loginPage, productsPage, cartPage, completeOrderPage }) => {
   await loginPage.goto();
-  await loginPage.login('standard_user', 'secret_sauce');
+  await loginPage.login('Username', 'Password'); // Pass env variable keys, not actual values
   await productsPage.addAllProductsToCart();
   await productsPage.goToCart();
   await cartPage.clickCheckout();

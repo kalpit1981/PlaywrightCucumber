@@ -1,6 +1,5 @@
 import { Locator, Page } from '@playwright/test';
 
-
 export class LoginPage 
 {
     readonly page: Page;
@@ -24,10 +23,25 @@ async goto()
 }
 
 
-async login(username: string, password: string) 
+async login(Username: string, Password: string) 
 {
-    await this.username.fill(username);
-    await this.password.fill(password);
+    // Resolve the actual values from process.env using the keys passed from feature file
+    const usernameValue = process.env[Username];
+    const passwordValue = process.env[Password];
+
+    // Log for debugging (optional)
+    console.log(`Attempting login with ${Username}=${usernameValue}, ${Password}=${passwordValue}`);
+
+    if (!usernameValue) {
+        throw new Error(`Environment variable '${Username}' is not defined or empty`);
+    }
+    
+    if (!passwordValue) {
+        throw new Error(`Environment variable '${Password}' is not defined or empty`);
+    }
+
+    await this.username.fill(usernameValue);
+    await this.password.fill(passwordValue);
     await this.loginBtn.click();
 }
 
