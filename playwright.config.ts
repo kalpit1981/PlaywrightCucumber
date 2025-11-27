@@ -5,17 +5,11 @@ const isCI = !!process.env.CI;
 
 const testDir = defineBddConfig({
   features: [
-    'tests/features/login.feature',
-    'tests/features/products.feature',
-    'tests/features/cart.feature',
-    'tests/features/completeorder.feature'
+    'tests/features/**/*.feature',
   ],
   steps: [
-    'tests/fixtures/fixtures.ts',
-    'tests/steps/loginsteps.ts',
-    'tests/steps/productsteps.ts',
-    'tests/steps/cartsteps.ts',
-    'tests/steps/completeordersteps.ts'
+    'tests/steps/**/*.ts',
+    'tests/fixtures/**/*.ts'
   ]
 });
 
